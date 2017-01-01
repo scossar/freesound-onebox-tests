@@ -5,7 +5,8 @@
 }
 
 .onebox {
-	width: 690px;
+	width: 100%;
+	max-width: 690px;
 	/*padding: 15px;*/
 	border: 12px solid #cccccc;
 	background-color: #000000;
@@ -32,9 +33,11 @@
 }
 
 .freesound-wave {
-	width: 690px;
+	width: 100%;
+	max-width: 690px;
 	height: 154px;
 	background-size: contain;
+	background-repeat: no-repeat;
 	position: relative;
 }
 
@@ -47,7 +50,8 @@
 }
 
 .freesound-controls-outer {
-	width: 690px;
+	width: 100%;
+	max-width: 690px;
 	height:38px;
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -68,6 +72,7 @@
 
 .freesound-btn {
 	background-size: contain;
+	background-repeat: no-repeat;
   position: absolute;
   cursor: pointer;
   opacity: 0.9;

@@ -8,6 +8,7 @@
     var $pauseButton;
     var $playButton;
     var $timerDisplay;
+    var $durationDisplay;
     var $freesoundProgress;
     var $freesoundCurrentWave;
     var sampleDuration;
@@ -34,6 +35,17 @@
     	}
     }
 
+    function assignVariables(self) {
+    	playerID = $(self).data('player-id');
+      audioSrc = $('#freesound-onebox-' + playerID).data('audio-src');
+      $playButton = $('#freesound-play-' + playerID);
+      $pauseButton = $('#freesound-pause-' + playerID);
+      $timerDisplay = $('#freesound-timer-' + playerID);
+      $freesoundProgress = $('#freesound-progress-' + playerID);
+      $freesoundCurrentWave = $('#freesound-wave-' + playerID);
+      $durationDisplay = $('#freesound-duration-' + playerID);
+    }
+
     $('.freesound-wave').click(function(e) {
     	if ($(this).hasClass('current-wave')) {
     		var elementLeft = $(this).offset().left;
@@ -46,18 +58,28 @@
     });
 
     $('.freesound-play-btn').click(function() {
-        playerID = $(this).data('player-id');
-        audioSrc = $('#freesound-onebox-' + playerID).data('audio-src');
-        $pauseButton = $('#freesound-pause-' + playerID);
-        $timerDisplay = $('#freesound-timer-' + playerID);
-        $freesoundProgress = $('#freesound-progress-' + playerID);
-        $freesoundCurrentWave = $('#freesound-wave-' + playerID);
-        var $durationDisplay = $('#freesound-duration-' + playerID);
-        $playButton = $(this);
+    	var soundID;
 
-        $freesoundCurrentWave.addClass('current-wave');
+      soundID = 'sound_' + playerID;
+      console.log('sounds', sounds);
 
-        currentSound = 'sound_' + playerID;
+      if (currentSound && sounds[currentSound].playing()) {
+      	sounds[currentSound].pause();
+      	$pauseButton.removeClass('active');
+      	$playButton.addClass('active');
+      }
+      
+      assignVariables(this);
+
+      // if (currentSound && !currentSound === soundID) {
+      	// if (sounds[currentSound].playing()) {
+      		// sounds[currentSound].pause();
+      	// }
+      // }
+
+      $freesoundCurrentWave.addClass('current-wave');
+
+      currentSound = 'sound_' + playerID;
 
         if (!sounds.hasOwnProperty(currentSound)) {
         	  sounds[currentSound] = new Howl({
@@ -74,7 +96,6 @@
             },
 
             onend: function() {
-            	console.log('it has ended');
             	$playButton.addClass('active');
             	$freesoundCurrentWave.removeClass('current-wave');
               $pauseButton.removeClass('active');
@@ -89,15 +110,12 @@
     });
 
     $('.freesound-pause-btn').click(function() {
-    	  // var playerid = $(this).data('player-id');
-    	  // var audiosrc = $('#freesound-onebox-' + playerid).data('audio-src');
-        $playButton = $('#freesound-play-' + playerID);
-        // var currentSound = 'sound_' + playerid;
+    	// assignVariables(this);
 
-        if (sounds.hasOwnProperty(currentSound)) {
-        	sounds[currentSound].pause();
-        	$(this).removeClass('active');
-          $playButton.addClass('active');
+      if (sounds.hasOwnProperty(currentSound)) {
+        sounds[currentSound].pause();
+        $(this).removeClass('active');
+        $playButton.addClass('active');
         }
     });
 
