@@ -68,7 +68,7 @@
       	$pauseButton.removeClass('active');
       	$playButton.addClass('active');
       }
-      
+
       assignVariables(this);
 
       // if (currentSound && !currentSound === soundID) {
@@ -96,6 +96,9 @@
             },
 
             onend: function() {
+            	$freesoundProgress.css({
+    			      'width': 0
+    		      });
             	$playButton.addClass('active');
             	$freesoundCurrentWave.removeClass('current-wave');
               $pauseButton.removeClass('active');
