@@ -1,0 +1,45 @@
+<! doctype html>
+<html lang="en">
+
+<head>
+    <title>Freesound Player Tests</title>
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Freesound Player Tests</h1>
+        </header>
+        <aside class="onebox freesound-onebox" data-audio-src="http://www.freesound.org/data/previews/248/248920_6552981-lq.mp3" id="freesound-onebox-1" data-player-id="1">
+            <div class="wrapper">
+                <div class="freesound-title">
+                    <div class="freesound-track" id="freesound-track-1">Clarinet</div>
+                    <div class="freesound-timer" id="freesound-timer-1"></div>
+                    <div class="freesound-duration" id="freesound-duration-1"></div>
+                </div>
+                <div class="freesound-wave" id="freesound-wave-1" style="background-image: url(http://www.freesound.org/data/displays/248/248920_6552981_wave_L.png);">
+                	<div class="freesound-progress" id="freesound-progress-1"></div>
+                </div>
+                <div class="freesound-controls-outer">
+                    <div class="freesound-controls-inner">
+                        <div class="freesound-loading"></div>
+                        <div class="freesound-btn freesound-play-btn active" id="freesound-play-1" data-player-id="1"></div>
+                        <div class="freesound-btn freesound-pause-btn" id="freesound-pause-1" data-player-id="1"></div>
+                        <div class="freesound-btn freesound-prev-btn"></div>
+                        <div class="freesound-btn freesound-next-btn"></div>
+                    </div>
+                    <div class="freesound-btn freesound-playlist-btn"></div>
+                    <div class="freesound-btn freesound-volume-btn"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="vendor/howler.js/dist/howler.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="javascripts/freesound.js"></script>
+</body>
+
+</html>
+
